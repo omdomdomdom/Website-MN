@@ -1,0 +1,394 @@
+/* ==========================================================================
+   MN Reinigung Frankfurt — Stylesheet
+   ========================================================================== */
+
+:root{
+  --bg:        #F6F5F0;
+  --bg-alt:    #ECE8DE;
+  --ink:       #1B1B18;
+  --ink-soft:  #55554E;
+  --line:      #D9D4C6;
+  --primary:   #16302C;
+  --primary-2: #0E211E;
+  --accent:    #AD8A3B;
+  --white:     #FFFFFF;
+
+  --serif: "Libre Caslon Display", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img{ max-width: 100%; display:block; }
+
+a{ color: inherit; }
+
+h1, h2, h3{
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--primary-2);
+}
+
+h1{ font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2{ font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3{ font-size: 1.25rem; }
+
+p{ margin: 0 0 1em; max-width: 62ch; }
+
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header{
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+}
+
+.wordmark{
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--primary-2);
+  letter-spacing: 0.01em;
+}
+
+.wordmark span{ color: var(--accent); }
+
+nav.main-nav ul{
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+nav.main-nav a{
+  text-decoration: none;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+  transition: color .15s, border-color .15s;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a[aria-current="page"]{
+  color: var(--primary-2);
+  border-color: var(--accent);
+}
+
+.nav-toggle{ display:none; }
+
+/* ---------- Buttons ---------- */
+
+.btn{
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.96rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+.btn-primary{
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover{ background: var(--primary-2); }
+
+.btn-ghost{
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary-2);
+}
+.btn-ghost:hover{ background: var(--primary); color: var(--white); }
+
+/* ---------- Hero ---------- */
+
+.hero{
+  padding: 88px 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .container{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-eyebrow{
+  color: var(--accent);
+  font-size: 0.92rem;
+  margin-bottom: 14px;
+}
+
+.hero-actions{
+  margin-top: 28px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-art{ width: 100%; height: auto; }
+
+/* ---------- Stats ---------- */
+
+.stats{
+  border-bottom: 1px solid var(--line);
+}
+.stats .container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 40px 32px;
+}
+.stat{
+  padding: 0 24px;
+  border-left: 1px solid var(--line);
+}
+.stat:first-child{ border-left: none; padding-left: 0; }
+.stat .num{
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  color: var(--primary-2);
+  display: block;
+}
+.stat .label{
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+/* ---------- Sections ---------- */
+
+section.block{
+  padding: 72px 0;
+  border-bottom: 1px solid var(--line);
+}
+section.block:last-of-type{ border-bottom: none; }
+
+.section-head{
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+/* Row list (services / audiences) instead of cards */
+
+.row-list{ list-style: none; margin: 0; padding: 0; }
+.row-list li{
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+.row-list li:last-child{ border-bottom: 1px solid var(--line); }
+
+.row-list h3{ margin: 0; }
+.row-list p{ margin: 0; color: var(--ink-soft); }
+
+/* Process steps — legitimate sequence */
+
+.steps{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.step .num{
+  font-family: var(--serif);
+  color: var(--accent);
+  font-size: 1.6rem;
+  display:block;
+  margin-bottom: 10px;
+}
+.step p{ color: var(--ink-soft); font-size: 0.96rem; }
+
+/* ---------- Audience icons row ---------- */
+
+.audience-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.audience-grid .item{
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.audience-grid svg{ margin-bottom: 14px; }
+.audience-grid h3{ font-size: 1.05rem; margin-bottom: 6px; }
+.audience-grid p{ font-size: 0.92rem; color: var(--ink-soft); margin:0; }
+
+/* ---------- CTA band ---------- */
+
+.cta-band{
+  background: var(--primary);
+  color: var(--bg);
+}
+.cta-band h2{ color: var(--white); }
+.cta-band p{ color: #C9D2CF; }
+.cta-band .container{
+  padding: 64px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.cta-band .btn-primary{ background: var(--accent); }
+.cta-band .btn-primary:hover{ background: #93762F; }
+
+/* ---------- Footer ---------- */
+
+footer.site-footer{
+  padding: 48px 0 32px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+footer .container{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+footer h4{
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+footer ul{ list-style:none; margin:0; padding:0; }
+footer li{ margin-bottom: 8px; }
+footer a{ text-decoration:none; }
+footer a:hover{ color: var(--primary-2); }
+.footer-bottom{
+  padding-top: 20px;
+  display:flex; justify-content:space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+
+/* ---------- Page header (inner pages) ---------- */
+
+.page-header{
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+.page-header p{ color: var(--ink-soft); }
+
+/* ---------- Contact page ---------- */
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.field{ margin-bottom: 20px; }
+.field label{
+  display:block;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 2px;
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+.field textarea{ min-height: 130px; resize: vertical; }
+.field input:focus,
+.field textarea:focus{
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.checkline{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.checkline input{ margin-top: 4px; }
+
+.form-note{
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding: 14px 16px;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  display: none;
+}
+.form-note.visible{ display:block; }
+
+.info-block{ margin-bottom: 28px; }
+.info-block h4{
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+.info-block p{ margin: 0; }
+
+/* ---------- Legal pages ---------- */
+
+.legal{ max-width: 760px; }
+.legal h2{ margin-top: 2em; font-size: 1.3rem; }
+.legal p, .legal li{ color: var(--ink-soft); }
+.legal ul{ padding-left: 1.2em; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px){
+  nav.main-nav ul{ gap: 20px; flex-wrap: wrap; }
+  .hero .container{ grid-template-columns: 1fr; }
+  .hero-art{ order: -1; max-width: 320px; }
+  .stats .container{ grid-template-columns: 1fr; gap: 20px; }
+  .stat{ border-left: none; border-top: 1px solid var(--line); padding: 20px 0 0; }
+  .stat:first-child{ border-top:none; }
+  .row-list li{ grid-template-columns: 1fr; gap: 8px; }
+  .steps{ grid-template-columns: 1fr 1fr; }
+  .audience-grid{ grid-template-columns: 1fr 1fr; }
+  footer .container{ grid-template-columns: 1fr; }
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition: none !important; }
+}
